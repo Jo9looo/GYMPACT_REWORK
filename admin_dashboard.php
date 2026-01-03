@@ -78,7 +78,8 @@ $admin_count = $conn->query("SELECT COUNT(*) as count FROM users WHERE role='adm
         <!-- Sidebar -->
         <nav class="sidebar">
             <div class="sidebar-header">
-                <div class="logo"><i class="fas fa-bullseye"></i> GYM<span>PACT</span></div>
+                <a href="index.php" class="logo" style="text-decoration:none;"><i class="fas fa-bullseye"></i>
+                    GYM<span>PACT</span></a>
             </div>
 
             <div class="sidebar-nav">
@@ -107,57 +108,58 @@ $admin_count = $conn->query("SELECT COUNT(*) as count FROM users WHERE role='adm
         <!-- Main Content -->
         <main class="main-content">
 
-                <!-- Header Mobile Toggle (Optional) -->
-        <div style="margin-bottom: 30px;">
-            <p style="color: #666;">Welcome back,</p>
-            <h1 style="color: #fff;">Admin Dashboard</h1>
-        </div>
+            <!-- Header Mobile Toggle (Optional) -->
+            <div style="margin-bottom: 30px;">
+                <p style="color: #666;">Welcome back,</p>
+                <h1 style="color: #fff;">Admin Dashboard</h1>
+            </div>
 
-        <?php if ($message): ?>
-                <div style="background: rgba(255, 229, 0, 0.1); border: 1px solid var(--primary-color); color: var(--primary-color); padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+            <?php if ($message): ?>
+                <div
+                    style="background: rgba(255, 229, 0, 0.1); border: 1px solid var(--primary-color); color: var(--primary-color); padding: 15px; border-radius: 8px; margin-bottom: 30px;">
                     <i class="fas fa-info-circle"></i> <?php echo $message; ?>
                 </div>
-        <?php endif; ?>
+            <?php endif; ?>
 
-        <!-- Stats Grid -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-dumbbell"></i>
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3><?php echo $class_count; ?></h3>
+                        <p>Active Classes</p>
+                    </div>
                 </div>
-                <div class="stat-info">
-                    <h3><?php echo $class_count; ?></h3>
-                    <p>Active Classes</p>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3><?php echo $user_count; ?></h3>
+                        <p>Total Members</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3><?php echo $admin_count; ?></h3>
+                        <p>Admins</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>+12%</h3>
+                        <p>Growth</p>
+                    </div>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="stat-info">
-                    <h3><?php echo $user_count; ?></h3>
-                    <p>Total Members</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-user-shield"></i>
-                </div>
-                <div class="stat-info">
-                    <h3><?php echo $admin_count; ?></h3>
-                    <p>Admins</p>
-                </div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="stat-info">
-                    <h3>+12%</h3>
-                    <p>Growth</p>
-                </div>
-            </div>
-        </div>
 
             <!-- Classes Section -->
             <section id="classes-section">
@@ -190,7 +192,8 @@ $admin_count = $conn->query("SELECT COUNT(*) as count FROM users WHERE role='adm
                                 <tr>
                                     <td>#<?php echo $class['id']; ?></td>
                                     <td style="font-weight: 600; color: #fff;">
-                                        <?php echo htmlspecialchars($class['name']); ?></td>
+                                        <?php echo htmlspecialchars($class['name']); ?>
+                                    </td>
                                     <td><span class="status-badge"
                                             style="background:#333; color:#ccc;"><?php echo htmlspecialchars($class['category'] ?? 'General'); ?></span>
                                     </td>
@@ -224,37 +227,38 @@ $admin_count = $conn->query("SELECT COUNT(*) as count FROM users WHERE role='adm
                 </div>
             </section>
 
-                <!-- Divider -->
-        <div style="height: 50px;"></div>
+            <!-- Divider -->
+            <div style="height: 50px;"></div>
 
-        <!-- Users Section -->
-        <section id="users-section">
-            <div class="section-header-flex">
-                <div class="section-title">
-                    <h2>Recent Members</h2>
-                    <p>Latest registered users</p>
+            <!-- Users Section -->
+            <section id="users-section">
+                <div class="section-header-flex">
+                    <div class="section-title">
+                        <h2>Recent Members</h2>
+                        <p>Latest registered users</p>
+                    </div>
+                    <button class="btn-outline" style="border-color:#444; font-size:0.8rem;">View All</button>
                 </div>
-                <button class="btn-outline" style="border-color:#444; font-size:0.8rem;">View All</button>
-            </div>
 
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>User ID</th>
-                            <th>Username</th>
-                            <th>Email Address</th>
-                            <th>Role</th>
-                            <th>Join Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php while ($u = $users->fetch_assoc()): ?>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Username</th>
+                                <th>Email Address</th>
+                                <th>Role</th>
+                                <th>Join Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while ($u = $users->fetch_assoc()): ?>
                                 <tr>
                                     <td>#<?php echo $u['id']; ?></td>
                                     <td>
                                         <div style="display:flex; align-items:center; gap:10px;">
-                                            <div style="width:30px; height:30px; background:#333; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--primary-color);">
+                                            <div
+                                                style="width:30px; height:30px; background:#333; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--primary-color);">
                                                 <?php echo strtoupper(substr($u['username'], 0, 1)); ?>
                                             </div>
                                             <?php echo htmlspecialchars($u['username']); ?>
@@ -263,18 +267,18 @@ $admin_count = $conn->query("SELECT COUNT(*) as count FROM users WHERE role='adm
                                     <td><?php echo htmlspecialchars($u['email']); ?></td>
                                     <td>
                                         <?php if ($u['role'] === 'admin'): ?>
-                                                <span class="status-badge status-admin">ADMIN</span>
+                                            <span class="status-badge status-admin">ADMIN</span>
                                         <?php else: ?>
-                                                <span class="status-badge status-user">MEMBER</span>
+                                            <span class="status-badge status-user">MEMBER</span>
                                         <?php endif; ?>
                                     </td>
                                     <td><?php echo date('M d, Y', strtotime($u['created_at'])); ?></td>
                                 </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
         </main>
     </div>

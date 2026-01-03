@@ -19,12 +19,13 @@ session_start();
     <!-- Header -->
     <header class="main-header">
         <div class="container header-content">
-            <div class="logo">
+            <a href="index.php" class="logo">
                 <i class="fas fa-bullseye"></i> GYM<span>PACT</span>
-            </div>
+            </a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
+                    <li><a href="catalog.php">Catalog</a></li>
                     <li><a href="#membership">Membership</a></li>
                     <li><a href="#stories">Success Stories</a></li>
                     <li><a href="#about">About</a></li>
@@ -80,7 +81,9 @@ session_start();
                     <div class="plan-header">
                         <h3>Premium</h3>
                         <div class="price">$320<span>/month</span></div>
-                        <a href="register.php" class="btn">Order now <i class="fas fa-arrow-right"></i></a>
+                        <p>Includes all Basic and Advanced benefits but with personal trainer where customer can ask
+                            about diet and etc </p>
+                        <a href="catalog.php" class="btn">Order now <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <ul class="plan-features">
                         <li><i class="fas fa-check-circle"></i> Professional Trainers</li>
@@ -96,7 +99,13 @@ session_start();
                     <div class="price">$120<span>/month</span></div>
                     <p class="plan-desc">Includes all basic benefits plus unlimited classes and access to premium
                         amenities like the sauna and pool.</p>
-                    <a href="register.php" class="btn">Order now <i class="fas fa-arrow-right"></i></a>
+                    <a href="catalog.php" class="btn">Order now <i class="fas fa-arrow-right"></i></a>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Professional Trainers</li>
+                        <li><i class="fas fa-check-circle"></i> All Facilities</li>
+                        <li><i class="fas fa-check-circle"></i> Free Drinks and Supplement</li>
+                        <li><i class="fas fa-check-circle"></i> Diet Program</li>
+                    </ul>
                 </div>
 
                 <!-- Basic Plan -->
@@ -105,7 +114,13 @@ session_start();
                     <div class="price">$70<span>/month</span></div>
                     <p class="plan-desc">Start your fitness journey today with GymPact and discover the benefits of our
                         Basic Membership.</p>
-                    <a href="register.php" class="btn">Order now <i class="fas fa-arrow-right"></i></a>
+                    <a href="catalog.php" class="btn">Order now <i class="fas fa-arrow-right"></i></a>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> Professional Trainers</li>
+                        <li><i class="fas fa-check-circle"></i> All Facilities</li>
+                        <li><i class="fas fa-check-circle"></i> Free Drinks and Supplement</li>
+                        <li><i class="fas fa-check-circle"></i> Diet Program</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -157,6 +172,25 @@ session_start();
         </div>
     </section>
 
+    <!-- About Section Placeholder -->
+    <section id="about" style="padding: 60px 0; background: #222; text-align: center;">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>GymPact is dedicated to helping you achieve your fitness goals with state-of-the-art facilities and
+                expert guidance.</p>
+        </div>
+    </section>
+
+    <!-- Blog Section Placeholder -->
+    <section id="blog" style="padding: 60px 0; background: #1A1A1A; text-align: center;">
+        <div class="container">
+            <h2>Latest From Our Blog</h2>
+            <p>Tips, tricks, and motivation for your daily routine.</p>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+
     <!-- Newsletter -->
     <section class="newsletter-section">
         <div class="container newsletter-content">
@@ -169,8 +203,12 @@ session_start();
                 <p class="privacy-text">We respect your privacy. Your information is safe and will never be shared.</p>
             </div>
             <div class="map-placeholder">
-                <!-- Map image placeholder -->
-                <img src="assets/images/map.png" alt="Gym Location Map" style="width: 100%; opacity: 0.5;">
+                <!-- Google Maps Embed: Retro Fit Kauman -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.584742747183!2d110.42070387588665!3d-6.973008693027663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70f5069c068603%3A0xa429a494a1f7bea0!2sRetro%20Fit%20Kauman!5e0!3m2!1sen!2sid!4v1704253920000!5m2!1sen!2sid"
+                    width="100%" height="350" style="border:0; border-radius:10px; opacity:0.8;" allowfullscreen=""
+                    loading="lazy">
+                </iframe>
             </div>
         </div>
     </section>
@@ -179,9 +217,9 @@ session_start();
     <footer class="main-footer">
         <div class="container footer-grid">
             <div class="footer-brand">
-                <div class="logo">
+                <a href="index.php" class="logo" style="display:inline-flex;">
                     <i class="fas fa-bullseye"></i> GYM<span>PACT</span>
-                </div>
+                </a>
                 <address>
                     9464 Columbia Ave.<br>
                     New York, NY 10029<br>

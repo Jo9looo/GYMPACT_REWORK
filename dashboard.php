@@ -247,14 +247,17 @@ $classes = $conn->query($classes_sql);
     <!-- Header -->
     <header class="main-header">
         <div class="container header-content">
-            <div class="logo">
+            <a href="index.php" class="logo" style="text-decoration:none;">
                 <i class="fas fa-bullseye"></i> GYM<span>PACT</span>
-            </div>
+            </a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.php">Home</a></li>
+                    <li><a href="catalog.php">Catalog</a></li>
                     <li><a href="index.php#membership">Membership</a></li>
-                    <li><a href="profile.php">Profile</a></li>
+                    <li><a href="index.php#stories">Success Stories</a></li>
+                    <li><a href="index.php#about">About</a></li>
+                    <li><a href="index.php#blog">Blog</a></li>
                 </ul>
             </nav>
             <div class="header-actions">

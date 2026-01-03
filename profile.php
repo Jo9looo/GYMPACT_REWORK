@@ -202,11 +202,16 @@ if ($result->num_rows > 0) {
     <!-- Header -->
     <header class="main-header">
         <div class="container header-content">
-            <div class="logo"><i class="fas fa-bullseye"></i> GYM<span>PACT</span></div>
+            <a href="index.php" class="logo" style="text-decoration:none;"><i class="fas fa-bullseye"></i>
+                GYM<span>PACT</span></a>
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="catalog.php">Catalog</a></li>
+                    <li><a href="index.php#membership">Membership</a></li>
+                    <li><a href="index.php#stories">Success Stories</a></li>
+                    <li><a href="index.php#about">About</a></li>
+                    <li><a href="index.php#blog">Blog</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
