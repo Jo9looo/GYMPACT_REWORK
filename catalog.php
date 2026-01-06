@@ -18,10 +18,13 @@ $classes = $conn->query("SELECT * FROM classes ORDER BY schedule");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Catalog - GYMPACT</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="assets/css/dropdown.css?v=<?php echo time(); ?>">
+    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <style>
         :root {
             --glass-bg: rgba(255, 255, 255, 0.05);
@@ -317,7 +320,8 @@ $classes = $conn->query("SELECT * FROM classes ORDER BY schedule");
 
         /* Hero Adjustment for Fixed Header */
         .catalog-hero {
-            margin-top: 70px;
+            margin-top: 0;
+            /* Remove top margin as header is sticky but we don't need offset here */
         }
     </style>
 </head>
@@ -330,36 +334,37 @@ $classes = $conn->query("SELECT * FROM classes ORDER BY schedule");
             <a href="index.php" class="logo" style="text-decoration:none;">
                 <i class="fas fa-bullseye"></i> GYM<span>PACT</span>
             </a>
-
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="catalog.php">Catalog</a></li>
+                    <li><a href="catalog.php" class="active">Catalog</a></li>
+                    <li><a href="trainers.php">Trainers</a></li>
                     <li><a href="index.php#membership">Membership</a></li>
-                    <li><a href="index.php#stories">Success Stories</a></li>
-                    <li><a href="index.php#about">About</a></li>
-                    <li><a href="index.php#blog">Blog</a></li>
+                    <li><a href="index.php#stories">Stories</a></li>
                 </ul>
             </nav>
-
             <div class="header-actions">
-                <div class="user-dropdown">
-                    <button class="profile-btn">
-                        <i class="fas fa-user-circle"></i>
-                        <span><?php echo htmlspecialchars($_SESSION['username']); ?></span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                        <a href="profile.php"><i class="fas fa-user"></i> My Profile</a>
-                        <div class="divider"></div>
-                        <a href="logout.php" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <div class="user-dropdown">
+                        <button class="profile-btn">
+                            <i class="fas fa-user-circle"></i>
+                            <span><?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                            <a href="profile.php"><i class="fas fa-user"></i> My Profile</a>
+                            <div class="divider"></div>
+                            <a href="logout.php" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
                     </div>
-                </div>
+                <?php else: ?>
+                    <a href="login.php" class="btn-outline">Login</a>
+                    <a href="register.php" class="btn">Join Now</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
-
     <!-- Hero Section -->
     <section class="catalog-hero">
         <div class="hero-content">

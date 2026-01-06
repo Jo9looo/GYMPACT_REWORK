@@ -32,8 +32,8 @@ if ($result->num_rows > 0) {
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/dropdown.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="assets/css/dropdown.css?v=<?php echo time(); ?>">
     <style>
         body {
             background-color: #121212;
@@ -208,25 +208,30 @@ if ($result->num_rows > 0) {
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="catalog.php">Catalog</a></li>
+                    <li><a href="trainers.php">Trainers</a></li>
                     <li><a href="index.php#membership">Membership</a></li>
-                    <li><a href="index.php#stories">Success Stories</a></li>
-                    <li><a href="index.php#about">About</a></li>
-                    <li><a href="index.php#blog">Blog</a></li>
+                    <li><a href="index.php#stories">Stories</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
-                <div class="user-dropdown">
-                    <button class="profile-btn"
-                        style="border-color: var(--primary-color); color: var(--primary-color);">
-                        <i class="fas fa-user-circle"></i>
-                        <span><?php echo htmlspecialchars($user['username']); ?></span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                        <a href="logout.php" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <div class="user-dropdown">
+                        <button class="profile-btn">
+                            <i class="fas fa-user-circle"></i>
+                            <span><?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                            <a href="profile.php" class="active"><i class="fas fa-user"></i> My Profile</a>
+                            <div class="divider"></div>
+                            <a href="logout.php" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
                     </div>
-                </div>
+                <?php else: ?>
+                    <a href="login.php" class="btn-outline">Login</a>
+                    <a href="register.php" class="btn">Join Now</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>

@@ -42,3 +42,32 @@ CREATE TABLE IF NOT EXISTS bookings (
 INSERT INTO classes (name, description, instructor, schedule, capacity, image) VALUES 
 ('Yoga Flow', 'Relaxing yoga session for all levels.', 'Sarah Jenkins', '2023-11-20 10:00:00', 15, 'yoga.jpg'),
 ('HIIT Blast', 'High intensity interval training.', 'Mike Tyson', '2023-11-21 18:00:00', 20, 'hiit.jpg');
+
+-- Trainers Table
+CREATE TABLE IF NOT EXISTS trainers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    specialty VARCHAR(100),
+    bio TEXT,
+    rate DECIMAL(10,2),
+    image VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Trainer Bookings Table
+CREATE TABLE IF NOT EXISTS trainer_bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    trainer_id INT,
+    booking_date DATETIME,
+    status ENUM('pending', 'confirmed', 'completed', 'cancelled') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (trainer_id) REFERENCES trainers(id) ON DELETE CASCADE
+);
+
+-- Insert Dummy Trainers
+INSERT INTO trainers (name, specialty, bio, rate, image) VALUES 
+('Alex Cormier', 'Strength & Conditioning', 'Certified strength coach with 10 years experience.', 50.00, 'trainer1.jpg'),
+('Mia Wong', 'Yoga & Pilates', 'Helping you find balance and flexibility.', 45.00, 'trainer2.jpg'),
+('Marcus Johnson', 'HIIT & Cardio', 'High energy trainer to push your limits.', 40.00, 'trainer3.jpg');
